@@ -1,6 +1,81 @@
-
 doctype html
 html
   head
-    title Albert Cui
+    title= title
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
+    script(src="https://code.jquery.com/jquery-2.1.1.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js")
+    style.
+     * {
+       font-family: 'Lato', sans-serif;
+     }
+     
+     body {
+       padding-top: 70px;
+       position: relative;
+     }
+     
+     ul {
+       font-size: 1.7rem;
+     }
+    script.
+      $('body').scrollspy({target:'.navbar'})
+  body(data-spy='scroll', data-target=".navbar")
+      include ./header.jade
+      .container#top
+        #col-mid-8
+         #about
+          h1 About
+          pre.
+           {
+              "name": "Albert Cui",
+              "age": "20",
+              "occupation": "Student",
+              "university": "Columbia University",
+              "major": "BS in Computer Science",
+              "graduation_date": "2016",
+              "location": "New York, NY",
+              "hobbies": [
+                  "Coding",
+                  "Dota 2",
+                  "College Football"
+              ]
+           }
+         #positions
+           h1 Positions
+           ul
+             li CCIT: June 2014 - Current
+               ul
+                 li Software Development Intern
+                 li PHP development with Symfony MVC framework, Doctrine ORM, MySQL, Elasticsearch, JS
+             li Columbia Daily Spectator: Spring 2013 - Current
+               ul
+                 li Lead Web Developer
+                 li Maintenance and development of the sites of the 
+                    a(href='http://columbiadailyspectator.com') Columbia Daily Spectator
+                 li Management and mentoring of new members to the development team
+         #projects
+           h1 Projects
+           ul
+             li
+               a(href='http://yasp.albertcui.com') YASP: YASP - Anther Stats Page
+               ul
+                 li A Dota 2 match stats tracker
+                 li Automatic replay downloading and parsing for more interesting stats
+             li
+               a(href='http://columbiaspectator.com/spectrum') Spectrum - The Blog of the Columbia Daily Spectator
+               ul
+                 li Content migration from the old Wordpress site to the current Drupal site
+                 li Mapping of the posts to new categories based off of old category and tags
+                 li Complete site restyling
+         #interests
+           h1 Interests
+           p The subreddits say it all...
+           .row
+            - var segments = subs.length / 4
+            - for(var i = 0; i < segments; i ++)
+              .col-md-3
+               ul
+                each s in subs.slice(i*segments, (i+1)*segments)
+                 li= s

@@ -1,4 +1,5 @@
 var r = require('./reddit.js'),
+    path = require('path'),
 	express = require('express')
 
 var app = express()
@@ -13,12 +14,26 @@ r.login(function(){
 		if(err) throw err
 		else {
 			subreddits = data
+            subreddits.sort(sorter)
 		}
 	})
 })
 
+function sorter(a, b) {
+    a = a.toLowerCase()
+    b = b.toLowerCase()
+    if (a > b) return 1
+    if (a < b) return -1
+    return 0
+}
+
 app.route('/').get(function(req, res){
-	res.render('index.jade')
+	res.render(
+        'index.jade',
+        {
+            subs: subreddits
+        }
+    )
 })
 
 
