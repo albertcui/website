@@ -1,8 +1,14 @@
 nav.navbar.navbar-default.navbar-fixed-top
   .container
-    a(href='#top', class = 'navbar-brand') Albert Cui
     .navbar-header
+      button(type='button', class='navbar-toggle collapsed', data-toggle='collapse', data-target='#collapse')
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a(href='#top', class = 'navbar-brand') Albert Cui
+    .collapse.navbar-collapse#collapse
       ul.nav.navbar-nav
         li: a(href='#about') About
         li: a(href='#positions') Positions
         li: a(href='#projects') Projects
+        li: a(href='#interests') Interests
