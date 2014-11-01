@@ -3,7 +3,7 @@ var r = require('./reddit.js'),
 	express = require('express')
 
 var app = express()
-
+app.use("/public", express.static(path.join(__dirname, '/public')))
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'jade');
 
