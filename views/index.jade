@@ -7,6 +7,13 @@ html
     script(src="https://code.jquery.com/jquery-2.1.1.min.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js")
     style.
+     .img-thumbnail {
+        height: 100px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        float: left;
+     }
+
      * {
        font-family: 'Lato', sans-serif;
      }
@@ -26,9 +33,9 @@ html
          #about
           h2 About
           img(src='/public/img/profile.jpg', class='img-thumbnail')
-          p.
+          p(style="display:inline;").
             My name is Albert. It's on this page a few times. I felt like I should have a website, so here it is.
-          pre.
+          pre(style="clear:both;").
            {
               "name": "Albert Cui",
               "age": "20",
